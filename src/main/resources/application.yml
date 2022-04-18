@@ -2,7 +2,6 @@ server:
   port: 9898
   servlet:
     context-path: /
-#    context-path: /blog-ms-server
 
 spring:
   profiles:
