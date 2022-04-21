@@ -26,7 +26,6 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,7 +40,6 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Api(tags = "评论模块")
-@EnableJpaAuditing
 @RestController
 @RequestMapping("/app")
 public class AppCommentController {

@@ -40,7 +40,6 @@
         </dependency>
 
 
-
         <!-- 数据库 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -91,7 +90,6 @@
         </dependency>
 
 
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -116,6 +114,13 @@
             <artifactId>knife4j-spring-boot-starter</artifactId>
             <!--在引用时请在maven中央仓库搜索最新版本号-->
             <version>2.0.9</version>
+        </dependency>
+
+        <!-- 微信公众号-->
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>wx-java-mp-spring-boot-starter</artifactId>
+            <version>4.3.0</version>
         </dependency>
     </dependencies>
 

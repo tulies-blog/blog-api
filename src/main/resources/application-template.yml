@@ -17,6 +17,25 @@ spring:
     # 生产环境设置为false
     show-sql: true
 
+  redis:
+    #数据库索引
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    lettuce:
+      pool:
+        #最大连接数
+        max-active: 8
+        #最大阻塞等待时间(负数表示没限制)
+        max-wait: -1ms
+        #最大空闲
+        max-idle: 8
+        #最小空闲
+        min-idle: 0
+    #连接超时时间
+    timeout: 10000ms
+
 app:
   base:
     open-auth: false
@@ -31,3 +50,27 @@ app:
     #    file-import: /import
     #文件导出路径
 #    file-export: /export
+
+
+wx:
+  mp:
+    # 公众号配置(必填)
+    app-id: 你的微信appid
+    secret: 你的微信密钥
+    # token: token
+    # aes-key: ss
+
+    # 存储配置redis(可选)
+    config-storage:
+      type: redistemplate
+      key-prefix: wx
+      redis:
+        host: 127.0.0.1
+        port: 6379
+
+      # http客户端配置
+      http-client-type: httpclient
+      # http-proxy-host:
+      # http-proxy-port:
+      # http-proxy-username:
+      # http-proxy-password:

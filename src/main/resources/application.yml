@@ -53,3 +53,6 @@ spring:
         enabled: true
         url-pattern: /*
         exclusions: '*.gif,*.png,*.jpg,*.html,*.js,*.css,*.ico,/druid/*'
+
+
+
