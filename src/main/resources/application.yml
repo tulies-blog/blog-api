@@ -5,7 +5,7 @@ server:
 
 spring:
   profiles:
-    active: maclocal
+    active: winlocal
   application:
     name: blog-api
   mvc:

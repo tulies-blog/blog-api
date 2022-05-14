@@ -31,7 +31,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -79,7 +78,6 @@ public class ArticleServiceImpl implements ArticleService {
      */
     @Override
     public Pagination<ArticleVO> findList(Integer pageNum, Integer pageSize, ArticleQO articleQo, String sorter) {
-
         Sort sort = Sort.by(Sort.Direction.DESC, "id");
         if (StringUtils.isNotBlank(sorter)) {
             sort = CommUtil.formatSorter(sorter);
