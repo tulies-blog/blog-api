@@ -23,7 +23,6 @@ import com.tulies.blog.api.utils.BeanUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -58,7 +57,7 @@ public class AppArticleController {
     ) {
         ArticleQO articleQO = new ArticleQO();
         log.info("appArticleQO==={}", appArticleQO);
-        BeanUtils.copyProperties(appArticleQO, articleQO);
+        BeanUtil.copyProperties(appArticleQO, articleQO);
         log.info("articleQO==={}", articleQO);
 
         // 状态为发布状态的
@@ -182,7 +181,7 @@ public class AppArticleController {
     public ApiResult list(@RequestParam(defaultValue = "1") Integer pageNum,
                           @RequestParam(defaultValue = "20") Integer pageSize,
                           String name,
-                          String sorter) {
+                          @RequestParam(defaultValue = "sort desc") String sorter) {
         TagQO tagQO = new TagQO();
         tagQO.setName(name);
         tagQO.setStatus(CommEnum.STATUS_ONLINE.getCode());

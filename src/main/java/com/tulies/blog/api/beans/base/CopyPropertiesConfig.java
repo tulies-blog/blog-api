@@ -17,8 +17,8 @@ import lombok.experimental.Accessors;
 public class CopyPropertiesConfig {
     // 哪些字段强制不替换
     private String[] ignoreProperties = null;
-    // 是否允许null替换
-    private Boolean allowNull = true;
+    // 是否忽略null替换
+    private Boolean ignoreNull = false;
     // 自定义过滤器，fliter方法返回true标识需要过滤
     private CopyPropertiesFliter copyPropertiesFliter;
 }

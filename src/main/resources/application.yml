@@ -5,7 +5,7 @@ server:
 
 spring:
   profiles:
-    active: winlocal
+    active: prod
   application:
     name: blog-api
   mvc:

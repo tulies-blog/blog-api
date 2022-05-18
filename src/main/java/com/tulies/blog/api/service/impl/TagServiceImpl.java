@@ -96,7 +96,7 @@ public class TagServiceImpl implements TagService {
         if (tag == null) {
             throw new AppException(ResultEnum.DATA_NOT_EXIT.getCode(), ResultEnum.DATA_NOT_EXIT.getMessage());
         }
-        BeanUtil.copyProperties(tagDTO, tag);
+        BeanUtil.copyProperties(tagDTO, tag,true);
         return tagRepository.save(tag);
     }
 
@@ -110,6 +110,7 @@ public class TagServiceImpl implements TagService {
         // 先查询这个文章下面的count
         ArticleQO articleQO = new ArticleQO();
         articleQO.setTags(name);
+        articleQO.setStatus("1");
         long count = articleService.count(articleQO);
 
         // 更新文章count

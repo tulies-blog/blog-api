@@ -15,10 +15,13 @@ import java.util.Set;
  * @Description:
  * @Date: Created in 1:17 2022/02/22
  */
-
 public class BeanUtil {
     public static void copyProperties(Object source, Object target) {
         copyProperties(source, target, new CopyPropertiesConfig());
+    }
+    // 主要为了快捷的设置不对null值进行复制
+    public static void copyProperties(Object source, Object target, boolean ignoreNull ) {
+        copyProperties(source, target, new CopyPropertiesConfig().setIgnoreNull(ignoreNull));
     }
     public static void copyProperties(Object source, Object target, String... ignoreProperties) throws BeansException {
         copyProperties(source, target, new CopyPropertiesConfig().setIgnoreProperties(ignoreProperties));
@@ -34,7 +37,7 @@ public class BeanUtil {
         PropertyDescriptor[] pds = src.getPropertyDescriptors();
         // 判断fliter是否为null，不为null，则去逐条判断
         for (PropertyDescriptor pd : pds) {
-            if (!config.getAllowNull() && src.getPropertyValue(pd.getName()) == null) {
+            if (config.getIgnoreNull() && src.getPropertyValue(pd.getName()) == null) {
                 // 字段不允许为空
                 ignoreSet.add(pd.getName());
             }else if(config.getCopyPropertiesFliter()!=null && config.getCopyPropertiesFliter().fliter(pd.getName(),source,target)){

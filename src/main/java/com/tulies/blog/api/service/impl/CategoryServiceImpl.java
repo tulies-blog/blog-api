@@ -89,6 +89,7 @@ public class CategoryServiceImpl implements CategoryService {
         // 先查询这个文章下面的count
         ArticleQO articleQO = new ArticleQO();
         articleQO.setCategoryId(id);
+        articleQO.setStatus("1");
         long count = articleService.count(articleQO);
 
         // 更新文章count

@@ -336,8 +336,8 @@ public class ArticleServiceImpl implements ArticleService {
         article.setUpdateTime(nowDate);
         Article articleResult = articleRepository.save(article);
 
-        // 同步文章数
-        syncArticleCount(articleForm.getTags() + "," + article.getTags(), article.getCategoryId());
+        // 同步文章数，只有status状态是发布状态的才会同步。创建默认都不是发布状态，所以不用同步了。
+//        syncArticleCount(articleForm.getTags() + "," + article.getTags(), article.getCategoryId());
 
         return articleResult;
     }
@@ -359,7 +359,7 @@ public class ArticleServiceImpl implements ArticleService {
             if (!tags.endsWith(",")) tags += ",";
             articleDTO.setTags(tags);
         }
-        BeanUtil.copyProperties(articleDTO, article);
+        BeanUtil.copyProperties(articleDTO, article, true);
         Date nowDate = new Date();
         article.setUpdateTime(nowDate);
 
@@ -430,16 +430,13 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     @Transactional
     public void changeStatus(String id, Integer status) {
-        // 先查询下当前这个活动信息
         Article article = this.findById(id);
         if (article == null) {
             throw new AppException(ResultEnum.DATA_NOT_EXIT);
         }
         articleRepository.changeStatus(id, status);
-
         // 同步文章数
         syncArticleCount(article.getTags(), article.getCategoryId());
-
     }
 
     @Override
