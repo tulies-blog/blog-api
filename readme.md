@@ -8,7 +8,7 @@
 
 ## 相关项目
 
-- [博客前台](https://github.com/tulies/blog-portal) 基于Next.js实现SEO支持，Typescript。
-- [博客后台](https://github.com/tulies/blog-ms) 目前基于Vue2.x全家桶，将采用用React或Vue3、Typescript重构。
-- [博客API服务](https://github.com/tulies/blog-api) Spring Boot、Spring Data JPA
+- [博客前台](https://github.com/tulies-blog/blog-portal) 基于Next.js实现SEO支持，Typescript。
+- [博客后台](https://github.com/tulies-blog/blog-ms) 目前基于Vue2.x全家桶，将采用用React或Vue3、Typescript重构。
+- [博客API服务](https://github.com/tulies-blog/blog-api) Spring Boot、Spring Data JPA
 
